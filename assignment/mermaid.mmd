@@ -1,0 +1,61 @@
+﻿classDiagram
+    class Animals{
+        +name : string
+        +species : string
+        +age: int}
+    class Mammals{
+        +name:string
+        +species: string
+        +age: int
+        +furType: string}
+    class Reptiles{
+        +name:string
+        +species: string
+        +age: int
+        +venomous: boolean}
+    class Birds{
+        +name: string
+        +species: string
+        +age: int
+        +wings: boolean}
+    class Enclosure{
+        +name: string
+        +size: int
+        +EnvironmentType: string
+        +animals: Animals[]
+    }
+    class zoo{
+        +name: string
+        +animals: Animals[]
+        +enclosures: Enclosure[]
+        +zookeepers: string[]
+    }
+    class ZooKeepers{
+        +name: string
+        +specialization: string;
+        +enclosures: Enclosure[]}
+    class program{
+        +main()
+        +createZoo()
+        +addAnimals()
+        +addEnclosures()
+        +addZookeepers()
+        +printZoo()
+        +printEnclosures()
+        +printZookeepers()
+        +printAnimals()
+    }
+
+    Mammals --|> Animals
+    Reptiles --|> Animals
+    Birds --|> Animals
+    Enclosure --|> Animals: contains
+    zoo --|> Enclosure: contains
+    zoo --|> Animals: contains
+    ZooKeepers --|> program: manages
+
+
+
+    zoo --|> ZooKeepers : contains
+
+    ZooKeepers--|>Enclosure: manages
